@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Arrays;
 
 public class Problem1 {
 
@@ -14,29 +15,39 @@ public class Problem1 {
 
     //recieved help from geeksforgeeks.com on types of array sorting
     // (https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/)
+    public static void main (String[] args){
+        int[] arr = new int[] {2, 0, 1};
+        colorSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
     public static void colorSort(int[] nums) {
 
         int start = 0; //start var is the lower end to place any zeros down
         int end = nums.length -1; // end var is the higher end to place any twos in place
         int center = 0; // center places the ones in the middle
-        int temp = 0; // allows for the switch between two elements to occur
+        int temp; // allows for the switch between two elements to occur
 
         while (center <= end){
 
             if ( nums[center] == 0){
+
                 temp = nums[start]; // the temp variable allows for the start and center position to switch places
                 nums[start] = nums[center];
                 nums[center] = temp;
                 start ++;
                 center ++;
+
             }
 
-            if (nums[center] == 1) {
+            else if (nums[center] == 1) {
+
                     center ++;
+
             }
 
-            if (nums[center] == 2) {
-                temp = nums[center]; // temp allows for the center and end positions to switch places
+            else if (nums[center] == 2) {
+
+                temp = nums[center];// temp allows for the center and end positions to switch places
                 nums[center] = nums[end];
                 nums[end] = temp;
                 end --;
