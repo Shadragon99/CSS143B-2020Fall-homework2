@@ -22,28 +22,30 @@ public class Problem1 {
         int temp = 0; // allows for the switch between two elements to occur
 
         while (center <= end){
-            switch(nums[center]){
-                case 0: { // if nums[center] is 0 then use case 0
-                    temp = nums[start]; // the temp variable allows for the start and center position to switch places
-                    nums[start] = nums[center];
-                    nums[center] = temp;
-                    start ++;
-                    center ++;
-                    break;
-                }
-                case 1: { // if nums[center] is 1 then use case 1
-                    center ++;
-                    break;
-                }
-                case 2: { // if nums[center] is 2 then use case 2
-                    temp = nums[center]; // temp allows for the center and end positions to switch places
-                    nums[center] = nums[end];
-                    nums[end] = temp;
-                    end --;
-                    break;
-                }
+
+            if ( nums[center] == 0){
+                temp = nums[start]; // the temp variable allows for the start and center position to switch places
+                nums[start] = nums[center];
+                nums[center] = temp;
+                start ++;
+                center ++;
             }
+
+            if (nums[center] == 1) {
+                    center ++;
+            }
+
+            if (nums[center] == 2) {
+                temp = nums[center]; // temp allows for the center and end positions to switch places
+                nums[center] = nums[end];
+                nums[end] = temp;
+                end --;
+
+            }
+
         }
 
     }
+
 }
+
